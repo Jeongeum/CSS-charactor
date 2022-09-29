@@ -1,24 +1,49 @@
-/* animation 
-@keyframes ani-ear-left {
+/* animation */ 
+
+@keyframes ear-left {
     from {
-        transform: rotate(-20deg);
+        transform: rotate(-30deg);
     }
 
     to {
-        transform: rotate(-40deg) translate(-5px);
+        transform: rotate(-40deg) translateX(-10px);
     }
 }
 
-@keyframes ani-ear-right {
+@keyframes ear-right {
     from {
-        transform: rotate(20deg);
+        transform: rotate(30deg);
     }
 
     to {
-        transform: rotate(40deg) translate(5px);
+        transform: rotate(40deg) translateX(10px);
     }
 }
-*/
+
+@keyframes eyes {
+    1% {
+
+    }
+    2% {
+        height: 8px;
+    }
+
+    3% {
+        height: 19px;
+        top: 155px;
+    }
+}
+
+@keyframes mouse {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
 /* setting */
 :root {
     --pri: #ce705f;
@@ -45,6 +70,9 @@ body {
 body {
     /* background: rebeccapurple; */
     border: none;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 
 .bear {
@@ -95,7 +123,7 @@ body {
     transform: rotate(327deg);
     border-radius: 50% 50% 0 0;
     box-shadow: 0 0 20px rgb(0 0 0 / 50%);
-    animation: ani-ear-left 1s infinite alternate;
+    animation: ear-left 1s infinite alternate;
 }
 
 .bear .ear.right {
@@ -104,7 +132,7 @@ body {
     transform: rotate(-327deg);
     border-radius: 50% 50% 0 0;
     box-shadow: 0 0 20px rgb(0 0 0 / 50%);
-    animation: ani-ear-left 1s infinite alternate;
+    animation: ear-right 1s infinite alternate;
 }
 
 .bear .face {
@@ -129,6 +157,10 @@ body {
     z-index: 3;
 }
 
+.bear .face .eye {
+    animation: eyes 5s linear 2s infinite;
+}
+
 .eye.left {
     left: 140px;
 }
@@ -140,7 +172,7 @@ body {
 .bear .nose {
     position: absolute;
     top: 170px;
-    left: 190px;
+    left: 189px;
     width: 23px;
     height: 23px;
     background-color: #000;
@@ -151,20 +183,20 @@ body {
 .bear .mouth {
     position: absolute;
     top: 160px;
-    width: 47px;
-    height: 48px;
+    width: 40px;
+    height: 45px;
     border: 10px solid #000;
     border-radius: 50%;
 }
 
 .bear .mouth.left {
-    left: 155px;
+    left: 160px;
     background-color: var(--sec2);
     z-index: 1;
 }
 
 .bear .mouth.right {
-    right: 155px;
+    right: 160px;
     background-color: var(--sec2);
     z-index: 1;
 }
@@ -177,6 +209,18 @@ body {
     width: 150px;
     height: 50px;
     background-color: var(--sec2);
+}
+
+.bear .mouthbottom {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    border: 10px solid #000;
+    border-radius: 50%;
+    top: 160px;
+    left: 176px;
+    z-index: 0;
+    background: #c94f53;
 }
 
 .arm {
@@ -199,4 +243,164 @@ body {
     transform: rotate(-35deg);
 }
 
+/* 튤립 */
+
+.tulip {
+    position: absolute;
+    bottom: 0px;
+    /* animation: tulip 1s infinite; */
+}
+
+.flower {
+    position: relative;
+    z-index: 2;
+}
+
+.flower .left {
+    position: absolute;
+    bottom: 10px;
+    width: 80px;
+    height: 50px;
+    background-color: #f38865;
+    transform: rotate(40deg);
+    border-radius: 50%;
+    border: 3px solid #eb663b;
+
+    z-index: 1;
+}
+
+.flower .center {
+    position: absolute;
+    left: 17px;
+    bottom: 23px;
+    width: 80px;
+    height: 50px;
+    background-color: #f38865;
+    transform: rotate(83deg);
+    border-radius: 50%;
+    border: 3px solid #eb663b;
+    animation: tulip 1s infinite;
+}
+
+.flower .right {
+    position: absolute;
+    left: 33px;
+    bottom: 10px;
+    width: 80px;
+    height: 50px;
+    background-color: #f38865;
+    transform: rotate(-40deg);
+    border-radius: 50%;
+    border: 3px solid #eb663b;
+    z-index: 1;
+}
+
+.flower .right::before {
+    content: '';
+    display: block;
+    background-color: #f38865;
+    width: 80px;
+    height: 51px;
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    border-radius: 30% 30% 52% 60%;
+    transform: rotate(37deg);
+    z-index: 2;
+}
+
+/* 꽃 줄기 */
+.tulip .stem {
+    position: absolute;
+    left: 46px;
+    top: -20px;
+    width: 20px;
+    height: 60px;
+    background-color: #307635;
+    border-radius: 20px;
+    
+}
+
+/* 꽃 이파리 */
+.tulip .leaf {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 30px;
+    background-color: #307635;
+}
+
+.tulip .leaf.left {
+    left: 8px;
+    bottom: -37px;
+    transform: rotate(30deg);
+
+    border-radius: 50% 50% 25% 50%;
+}
+
+.tulip .leaf.right {
+    left: 44px;
+    bottom: -40px;
+    transform: rotate(-15deg);
+    border-radius: 50% 50% 50% 25%;
+}
+
+/* 튤립 눈 */
+.tulip .eye {
+    position: absolute;
+    top: -50px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #000;
+    z-index: 3;
+}
+
+.tulip .eye.left {
+    left: 35px;
+}
+
+.tulip .eye.right {
+    left: 67px;
+}
+
+/* 튤립 입 */
+.tulip .mouthbottom {
+    position: absolute;
+    top: -35px;
+    left: 46px;
+    border-radius: 0 0 50% 50%;
+    width: 15px;
+    height: 20px;
+    border: 3px solid #000;
+    z-index: 3;
+    animation: mouse 0.3s infinite alternate;
+}
+
+/* 튤립 위치 및 색상 */
+.tulip.one {
+    left: 109px;
+    bottom: -3px;
+    transform: rotate(-20deg);
+}
+
+.tulip.one .flower div, .tulip.one .flower .right::before {
+    background-color: #fad24e;
+    border: none;
+}
+
+.tulip.two {
+    left: 150px;
+}
+
+.tulip.three {
+    left: 190px;
+    bottom: 43px;
+    transform: rotate(13deg);
+}
+
+.tulip.three .flower div, .tulip.three .flower .right::before {
+    background-color: #a58aed;
+    border: none;
+}
 /* media query */
